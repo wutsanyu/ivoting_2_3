@@ -1,3 +1,4 @@
+
 require 'rubygems'
 require 'hirb'
 require 'active_record'
