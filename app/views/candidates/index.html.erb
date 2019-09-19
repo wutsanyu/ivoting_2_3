@@ -1,7 +1,7 @@
 <%# <%= provide :my_title, "我是title"%> 
 <%= content_for :my_title do %>
 我是Title
-<%= end %>
+<% end %>
 <h1>候選人列表</h1>
 
 <%= link_to '新增候選人', new_candidate_path %>
@@ -17,19 +17,6 @@
     </tr>
   </thead>
   <tbody>
-    <% @candidates.each do |candidate| %>
-    <tr>
-      <td><%= link_to '投給這位', vote_candidate_path(candidate), method: "post", data: {confirm: "確定投給這個人？"}, class:"btn btn-primary btn-xs" %></td>
-      <td><%= candidate.name  %></td>
-      <td><%= candidate.age %>歲</td>
-      <td><%= candidate.party %></td>
-      <td><%= candidate.politics  %></td>
-      <td><%= candidate.vote_logs.size %></td>
-      <td>
-        <%= link_to '編輯', edit_candidate_path(candidate), class:"btn btn-success btn-xs" %>
-        <%= link_to '刪除', candidate_path(candidate), method: "delete", data: { confirm: "確認刪除" }, class:"btn btn-danger btn-xs" %>
-      </td> 
-    </tr>
-    <% end %>
+    <%= render @candidates %>
   </tbody>
 </table>
