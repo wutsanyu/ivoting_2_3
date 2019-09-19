@@ -1,5 +1,6 @@
 class CandidatesController < ApplicationController
   before_action :find_candidate, only: [:edit, :update, :destory, :vote]
+  
 
   def index
     @candidates = Candidate.all
@@ -19,6 +20,8 @@ class CandidatesController < ApplicationController
   end
 
   def edit
+    # render layout: "backend"
+    # render layout: false
   end
 
   def update

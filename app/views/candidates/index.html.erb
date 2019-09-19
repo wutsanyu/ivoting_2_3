@@ -1,3 +1,7 @@
+<%# <%= provide :my_title, "我是title"%> 
+<%= content_for :my_title do %>
+我是Title
+<%= end %>
 <h1>候選人列表</h1>
 
 <%= link_to '新增候選人', new_candidate_path %>
