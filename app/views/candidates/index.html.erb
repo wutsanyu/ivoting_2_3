@@ -1,8 +1,12 @@
+<%# <%= provide :my_title, "我是title"%> 
+<%= content_for :my_title do %>
+我是Title
+<% end %>
 <h1>候選人列表</h1>
 
-<%= link_to '新增候選人', new_candidate_path %>
+<%= icon_link_to '新增候選人', new_candidate_path, "knight" %>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <td>候選人姓名</td>
@@ -13,18 +17,6 @@
     </tr>
   </thead>
   <tbody>
-    <% @candidates.each do |candidate| %>
-    <tr>
-      <td><%= candidate.name  %></td>
-      <td><%= candidate.age %>歲</td>
-      <td><%= candidate.party %></td>
-      <td><%= candidate.politics  %></td>
-      <td><%= candidate.votes %></td>
-      <td>
-        <%= link_to '編輯', edit_candidate_path(candidate) %>
-        <%= link_to '刪除', candidate_path(candidate), method: "delete", data: { confirm: "確認刪除" } %>
-      </td> 
-    </tr>
-    <% end %>
+    <%= render @candidates %>
   </tbody>
 </table>
